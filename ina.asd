@@ -2,9 +2,10 @@
   :version "0.1.0"
   :author "walpurgisnatch"
   :license "MIT"
-  :depends-on ("dexador")
+  :depends-on ("dexador"
+               "quri")
   :components ((:module "src"
+                :serial t
                 :components
                 ((:file "ina"))))
-  :description ""
-  :in-order-to ((test-op (test-op "ina/tests"))))
+  :description "Dirbuster")
