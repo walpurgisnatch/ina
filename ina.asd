@@ -3,7 +3,8 @@
   :author "walpurgisnatch"
   :license "MIT"
   :depends-on ("dexador"
-               "quri")
+               "quri"
+               "cl-ppcre")
   :components ((:module "src"
                 :serial t
                 :components
