@@ -17,13 +17,14 @@
 (defmacro with-request (url &body body)
   `(handler-case
        (multiple-value-bind (document status headers quri-uri)
-           (dex:get ,url)
+           (handler-bind ((dex:http-request-not-found #'dex:ignore-and-continue)
+                          (dex:http-request-failed #'dex:ignore-and-continue))
+             (dex:get ,url))
          (declare (ignorable headers quri-uri))
          (multiple-value-bind (length lines words)
              (count-stuff document)
            (progn ,@body)))
-     (error (e) (print e))))
-
+     (error (e) nil)))
 
 (defun ina (host wordlist)
   (let ((url (prepare-url host)))
