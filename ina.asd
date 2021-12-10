@@ -8,5 +8,6 @@
   :components ((:module "src"
                 :serial t
                 :components
-                ((:file "ina"))))
+                ((:file "utils")
+                 (:file "ina"))))
   :description "Dirbuster")
